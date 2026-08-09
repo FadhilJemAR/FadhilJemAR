@@ -1,7 +1,7 @@
 
 # The Record
 
-![Metrics](https://github.com/flessan/flessan/blob/main/github-metrics.svg)
+![Metrics](https://github.com/FadhilJemAR/FadhilJemAR/blob/master/github-metrics.svg)
 
 ### Me?
 
@@ -24,4 +24,3 @@ Begginer To Intermediate Web Developer . I build and deploy fast, scalable stati
 
 
 
-### L
