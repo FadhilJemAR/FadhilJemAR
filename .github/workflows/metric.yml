@@ -1,0 +1,31 @@
+name: Metrics
+on:
+  # 1. Update otomatis cuma sekali sehari (jam 00:00) supaya hemat quota
+  schedule: [{cron: "0 0 * * *"}]
+  
+  # 2. HANYA jalan kalau kamu manual push kode (bukan saat bot update gambar)
+  # Kita hapus baris push branches agar tidak loop
+  workflow_dispatch:
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Git Config
+        run: |
+          git config --global user.name "FadhilJemAR"
+          git config --global user.email "fadhilar91128@gmail.com"
+
+      - uses: lowlighter/metrics@latest
+        with:
+          user: FadhilJemAR
+          token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.METRICS_TOKEN }}
+          committer_message: "update metrics for FadhilJemAR"
+          
+          # Tambahan: Jangan jalankan kalau tidak ada perubahan data
+          config_timezone: Asia/Jakarta
+          
+          # Plugins
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
